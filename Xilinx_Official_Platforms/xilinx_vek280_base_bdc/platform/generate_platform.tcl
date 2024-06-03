@@ -1,8 +1,9 @@
 #******************************************************************************
 # Copyright (C) 2020-2022 Xilinx, Inc. All rights reserved.
-# Copyright (C) 2022-2023 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright (C) 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
 # SPDX-License-Identifier: MIT
 #******************************************************************************
+
 # parsing options
 set options [dict create {*}$argv]
 
@@ -23,13 +24,13 @@ if {$emu_xsa_path ne "" && [file exists $emu_xsa_path]} {
   lappend plat_arg $emu_xsa_path
 }
 
-platform create -name $platform_name -desc " A base platform targeting VCK190 which is the first Versal AI Core series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 8GB of DDR4 UDIMM, 8GB LPDDR4 component, 400 AI engines, 1968 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vck190.html" {*}$plat_arg -out $platform_out -no-boot-bsp
+platform create -name $platform_name -desc " A base platform targeting VEK280 which is the first Versal AI Edge series evaluation kit, enabling designers to develop solutions using AI and DSP engines capable of delivering over 100X greater compute performance compared to current server class CPUs. This board includes 12GB LPDDR4 component, 304 AI engines, 1312 DSP engines, Dual-Core Arm® Cortex®-A72 and Dual-Core Cortex-R5. More information at https://www.xilinx.com/products/boards-and-kits/vek280.html" {*}$plat_arg -out $platform_out -no-boot-bsp
 
 domain create -name aiengine -os aie_runtime -proc {ai_engine}
 domain config -qemu-data $boot_dir_path
 domain create -name xrt -proc psv_cortexa72 -os linux -sd-dir $img_dir_path
 domain config -boot $boot_dir_path
-domain config -generate-bif
+domain config -generate-bif 
 
 domain config -qemu-data $boot_dir_path
 

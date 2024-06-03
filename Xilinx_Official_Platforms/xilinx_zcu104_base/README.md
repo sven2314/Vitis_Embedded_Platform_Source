@@ -1,6 +1,6 @@
 # Vitis Base Platform for the ZCU104 Board
 
-***Version: 2023.2***
+***Version: 2024.1***
 
 This platform comes with common hardware features on the ZCU104 board like GEM and PS DDR4. The platform software includes OpenCV in PetaLinux. It is useful as a base platform for exercising Vitis capabilities and topologies on the ZCU104 board.
 
@@ -10,9 +10,9 @@ This platform comes with common hardware features on the ZCU104 board like GEM a
 
 | Type              | Value                       |
 | ----------------- | --------------------------- |
-| Release Version   | xilinx_zcu104_base_202320_1 |
-| Vitis version     | 2023.2                      |
-| XRT Tag version   | [202320.2.16.0_PetaLinux](https://github.com/Xilinx/XRT/releases/tag/202320.2.16.0_PetaLinux)              |
+| Release Version   | xilinx_zcu104_base_202410_1 |
+| Vitis version     | 2024.1                      |
+| XRT Tag version   | [202410.2.17.0_PetaLinux](https://github.com/Xilinx/XRT/releases/tag/202410.2.17.0_Petalinux)                |
 | Target board      | ZCU104                      |
 
 ### Interfaces
