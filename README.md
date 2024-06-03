@@ -9,8 +9,8 @@ platforms][3].
 To build the Vitis embedded platforms from source code in this repository, you will need to have the following tools installed and follow the [build instructions](#build-instructions):
 
 - A Linux-based host OS supported by Vitis
-- [Vitis][1] 2023.2
-- [Common Software Image](#installing-the-common-software) 2023.2
+- [Vitis][1] 2024.1
+- [Common Software Image](#installing-the-common-software) 2024.1
 
 [1]: https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html
 
@@ -33,7 +33,7 @@ This repository is divided into two sections:
   Vitis environment need to be setup before building the platform.
 
   ```bash
-  source <Vitis_install_path>/Vitis/2023.2/settings64.sh
+  source <Vitis_install_path>/Vitis/2024.1/settings64.sh
   ```
   This package comes with sources to generate the Vitis platform with these steps:
 
