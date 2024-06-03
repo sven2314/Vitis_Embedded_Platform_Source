@@ -1,6 +1,6 @@
 #******************************************************************************
 # Copyright (C) 2020-2022 Xilinx, Inc. All rights reserved.
-# Copyright (C) 2022-2023 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright (C) 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
 # SPDX-License-Identifier: MIT
 #******************************************************************************
 .EXPORT_ALL_VARIABLES:
@@ -12,14 +12,14 @@ BOOTGEN = $(XILINX_VITIS)/bin/bootgen
 XSCT    = $(XILINX_VITIS)/bin/xsct
 
 #platform specific
-PLATFORM = xilinx_vck190_base_bdc
+PLATFORM = xilinx_vek280_base_bdc
 CPU_ARCH = a72
-BOARD    = versal-vck190-reva-x-ebm-01-reva
+BOARD    = versal-vek280-revb
 CORE     = psv_cortexa72_0
 
 #versioning
-VERSION          ?= 202320_1
-VER              ?= 202320.1
+VERSION          ?= 202410_1
+VER              ?= 202410.1
 
 #common
 TOP_DIR         ?= $(shell readlink -f .)
@@ -44,23 +44,17 @@ BOOT_FILES       = u-boot.elf bl31.elf
 #platform related
 PLATFORM_NAME    = $(PLATFORM)_$(VERSION)
 PLATFORM_SW_SRC  = $(TOP_DIR)/platform
-PLATFORM_DIR      = $(TOP_DIR)/platform_repo
+PLATFORM_DIR     = $(TOP_DIR)/platform_repo
 
 #flow related
-PREBUILT_LINUX_PATH ?= /opt/xilinx/platform/xilinx-versal-common-v2023.2
-ifneq ($(wildcard $(TOP_DIR)/xilinx-versal-common-v2023.2),)
-	PREBUILT_LINUX_PATH ?= $(TOP_DIR)/xilinx-versal-common-v2023.2
+PREBUILT_LINUX_PATH ?= /opt/xilinx/platform/xilinx-versal-common-v2024.1
+ifneq ($(wildcard $(TOP_DIR)/xilinx-versal-common-v2024.1),)
+PREBUILT_LINUX_PATH ?= $(TOP_DIR)/xilinx-versal-common-v2024.1
 endif
-
-#Absolute paths
 # Getting Absolute paths
 ifneq ("$(wildcard $(XSA))","")
   XSA_ABS ?= $(realpath $(XSA))
   override XSA := $(realpath $(XSA_ABS))
-endif
-ifneq ("$(wildcard $(HW_EMU_XSA_ABS))","")
-  HW_EMU_XSA_ABS ?= $(realpath $(HW_EMU_XSA))
-  override HW_EMU_XSA := $(realpath $(HW_EMU_XSA_ABS))
 endif
 ifneq ("$(wildcard $(PREBUILT_LINUX_PATH_ABS))","")
   PREBUILT_LINUX_PATH_ABS ?= $(realpath $(PREBUILT_LINUX_PATH))

@@ -1,6 +1,6 @@
 #******************************************************************************
 # Copyright (C) 2020-2022 Xilinx, Inc. All rights reserved.
-# Copyright (C) 2022-2023 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright (C) 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
 # SPDX-License-Identifier: MIT
 #******************************************************************************
 
@@ -227,7 +227,7 @@ proc create_root_design { parentCell } {
     ] $CIPS_0
 
  # Create instance: cips_noc, and set properties
-  set cips_noc [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 cips_noc ]
+  set cips_noc [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.1 cips_noc ]
   set_property -dict [list \
     CONFIG.NUM_CLKS {9} \
     CONFIG.NUM_MC {0} \
@@ -375,7 +375,7 @@ proc create_root_design { parentCell } {
 
 
 # Create instance: noc_ddr, and set properties
- set noc_lpddr4_0 [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 noc_lpddr4_0 ]
+ set noc_lpddr4_0 [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.1 noc_lpddr4_0 ]
   set_property -dict [ list \
     CONFIG.CH0_LPDDR4_0_BOARD_INTERFACE {ch0_lpddr4_trip1} \
     CONFIG.CH1_LPDDR4_0_BOARD_INTERFACE {ch1_lpddr4_trip1} \
@@ -412,7 +412,7 @@ set_property -dict [ list \
   ] [get_bd_intf_pins /noc_lpddr4_0/S03_INI]
 
 # Create instance: noc_lpddr4, and set properties
-set noc_lpddr4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 noc_lpddr4 ]
+set noc_lpddr4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.1 noc_lpddr4 ]
   set_property -dict [list \
     CONFIG.CH0_LPDDR4_0_BOARD_INTERFACE {ch0_lpddr4_trip2} \
     CONFIG.CH0_LPDDR4_1_BOARD_INTERFACE {ch0_lpddr4_trip3} \
@@ -467,7 +467,7 @@ set noc_lpddr4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 noc_lpd
  ] [get_bd_intf_pins /ai_engine_0/S00_AXI]
 
  # Create instance: aggr_noc, and set properties
-  set aggr_noc [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 aggr_noc ]
+  set aggr_noc [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.1 aggr_noc ]
   set_property -dict [list \
     CONFIG.NUM_MI {0} \
     CONFIG.NUM_NMI {8} \
@@ -510,7 +510,7 @@ set noc_lpddr4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 noc_lpd
  ] [get_bd_intf_pins /aggr_noc/S07_INI]
 
   # Create instance: ConfigNoc, and set properties
-  set ConfigNoc [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 ConfigNoc ]
+  set ConfigNoc [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.1 ConfigNoc ]
   set_property -dict [list \
     CONFIG.NUM_CLKS {1} \
     CONFIG.NUM_MI {1} \
@@ -546,7 +546,7 @@ CONFIG.CLKOUT_DYN_PS {None,None,None,None,None,None,None} \
 CONFIG.CLKOUT_MATCHED_ROUTING {false,false,false,false,false,false,false} \
 CONFIG.CLKOUT_PORT {clk_out1,clk_out2,clk_out3,clk_out4,clk_out5,clk_out6,clk_out7} \
 CONFIG.CLKOUT_REQUESTED_DUTY_CYCLE {50.000,50.000,50.000,50.000,50.000,50.000,50.000} \
-CONFIG.CLKOUT_REQUESTED_OUT_FREQUENCY {100,150,300,75,200,400,600} \
+CONFIG.CLKOUT_REQUESTED_OUT_FREQUENCY {104.167,156.25,312.5,78.125,208.33,416.67,625} \
 CONFIG.CLKOUT_REQUESTED_PHASE {0.000,0.000,0.000,0.000,0.000,0.000,0.000} \
 CONFIG.CLKOUT_USED {true,true,true,true,true,true,true} \
 CONFIG.JITTER_SEL {Min_O_Jitter} \
@@ -559,26 +559,26 @@ CONFIG.PRIM_SOURCE {Global_buffer} \
 CONFIG.PRIM_IN_FREQ {99.999908} \
 ] $clk_wizard_0
 
-# Create instance: psr_100mh, and set properties
-set psr_100mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_100mhz ]
+# Create instance: psr_104mh, and set properties
+set psr_104mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_104mhz ]
 
-# Create instance: psr_150mh, and set properties
-set psr_150mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_150mhz ]
+# Create instance: psr_156mh, and set properties
+set psr_156mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_156mhz ]
 
-# Create instance: psr_300mh, and set properties
-set psr_300mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_300mhz ]
+# Create instance: psr_312mh, and set properties
+set psr_312mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_312mhz ]
 
-# Create instance: psr_75mh, and set properties
-set psr_75mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_75mhz ]
+# Create instance: psr_78mh, and set properties
+set psr_78mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_78mhz ]
 
-# Create instance: psr_200mh, and set properties
-set psr_200mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_200mhz ]
+# Create instance: psr_208mh, and set properties
+set psr_208mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_208mhz ]
 
-# Create instance: psr_400mh, and set properties
-set psr_400mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_400mhz ]
+# Create instance: psr_416mh, and set properties
+set psr_416mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_416mhz ]
 
-# Create instance: psr_600mh, and set properties
-set psr_600mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_600mhz ]
+# Create instance: psr_625mh, and set properties
+set psr_625mhz [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset psr_625mhz ]
 
 # Create instance: smartconnect_1, and set properties
 set icn_ctrl_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect icn_ctrl_1 ]
@@ -645,7 +645,7 @@ connect_bd_intf_net -intf_net axi_noc_0_M07_INI [get_bd_intf_pins aggr_noc/M07_I
 
 # Create port connections
 connect_bd_net -net CIPS_0_pl_clk0 [get_bd_pins CIPS_0/pl0_ref_clk] [get_bd_pins clk_wizard_0/clk_in1]
-connect_bd_net -net CIPS_0_pl_resetn1 [get_bd_pins CIPS_0/pl0_resetn] [get_bd_pins clk_wizard_0/resetn] [get_bd_pins psr_150mhz/ext_reset_in] [get_bd_pins psr_100mhz/ext_reset_in] [get_bd_pins psr_200mhz/ext_reset_in] [get_bd_pins psr_300mhz/ext_reset_in] [get_bd_pins psr_400mhz/ext_reset_in] [get_bd_pins psr_600mhz/ext_reset_in] [get_bd_pins psr_75mhz/ext_reset_in]
+connect_bd_net -net CIPS_0_pl_resetn1 [get_bd_pins CIPS_0/pl0_resetn] [get_bd_pins clk_wizard_0/resetn] [get_bd_pins psr_156mhz/ext_reset_in] [get_bd_pins psr_104mhz/ext_reset_in] [get_bd_pins psr_208mhz/ext_reset_in] [get_bd_pins psr_312mhz/ext_reset_in] [get_bd_pins psr_416mhz/ext_reset_in] [get_bd_pins psr_625mhz/ext_reset_in] [get_bd_pins psr_78mhz/ext_reset_in]
 connect_bd_net -net CIPS_0_ps_pmc_noc_axi0_clk [get_bd_pins CIPS_0/pmc_axi_noc_axi0_clk] [get_bd_pins cips_noc/aclk8]
 connect_bd_net -net CIPS_0_ps_ps_noc_cci_axi0_clk [get_bd_pins CIPS_0/fpd_cci_noc_axi0_clk] [get_bd_pins cips_noc/aclk1]
 connect_bd_net -net CIPS_0_ps_ps_noc_cci_axi1_clk [get_bd_pins CIPS_0/fpd_cci_noc_axi1_clk] [get_bd_pins cips_noc/aclk2]
@@ -656,15 +656,15 @@ connect_bd_net -net CIPS_0_ps_ps_noc_nci_axi1_clk [get_bd_pins CIPS_0/fpd_axi_no
 connect_bd_net -net CIPS_0_ps_ps_noc_rpu_axi0_clk [get_bd_pins CIPS_0/lpd_axi_noc_clk] [get_bd_pins cips_noc/aclk7]
 connect_bd_net -net ai_engine_0_s00_axi_aclk [get_bd_pins ConfigNoc/aclk0] [get_bd_pins ai_engine_0/s00_axi_aclk]
 connect_bd_net -net axi_intc_3_irq [get_bd_pins CIPS_0/pl_ps_irq0] [get_bd_pins axi_intc_parent/irq]
-connect_bd_net -net clk_wizard_0_clk_out1 [get_bd_pins clk_wizard_0/clk_out1] [get_bd_pins ConfigNoc/aclk5] [get_bd_pins CIPS_0/m_axi_fpd_aclk] [get_bd_pins axi_intc_parent/s_axi_aclk] [get_bd_pins cips_noc/aclk0]  [get_bd_pins icn_ctrl_1/aclk] [get_bd_pins icn_ctrl_1/aclk1] [get_bd_pins icn_ctrl_2/aclk] [get_bd_pins psr_100mhz/slowest_sync_clk] [get_bd_pins dummy_slave_0/aclk] 
-connect_bd_net -net clk_wizard_0_clk_out2 [get_bd_pins clk_wizard_0/clk_out2] [get_bd_pins psr_150mhz/slowest_sync_clk]
-connect_bd_net -net clk_wizard_0_clk_out3 [get_bd_pins clk_wizard_0/clk_out3] [get_bd_pins psr_300mhz/slowest_sync_clk]
-connect_bd_net -net clk_wizard_0_clk_out4 [get_bd_pins clk_wizard_0/clk_out4] [get_bd_pins psr_75mhz/slowest_sync_clk]
-connect_bd_net -net clk_wizard_0_clk_out5 [get_bd_pins clk_wizard_0/clk_out5] [get_bd_pins psr_200mhz/slowest_sync_clk]
-connect_bd_net -net clk_wizard_0_clk_out6 [get_bd_pins clk_wizard_0/clk_out6] [get_bd_pins psr_400mhz/slowest_sync_clk]
-connect_bd_net -net clk_wizard_0_clk_out7 [get_bd_pins clk_wizard_0/clk_out7] [get_bd_pins psr_600mhz/slowest_sync_clk]
-connect_bd_net -net clk_wizard_0_locked [get_bd_pins clk_wizard_0/locked] [get_bd_pins psr_100mhz/dcm_locked] [get_bd_pins psr_150mhz/dcm_locked] [get_bd_pins psr_200mhz/dcm_locked] [get_bd_pins psr_300mhz/dcm_locked] [get_bd_pins psr_400mhz/dcm_locked] [get_bd_pins psr_600mhz/dcm_locked] [get_bd_pins psr_75mhz/dcm_locked]
-connect_bd_net -net psr_100mhz_peripheral_aresetn [get_bd_pins axi_intc_parent/s_axi_aresetn] [get_bd_pins icn_ctrl_1/aresetn] [get_bd_pins icn_ctrl_2/aresetn] [get_bd_pins psr_100mhz/peripheral_aresetn] [get_bd_pins dummy_slave_0/aresetn] 
+connect_bd_net -net clk_wizard_0_clk_out1 [get_bd_pins clk_wizard_0/clk_out1] [get_bd_pins ConfigNoc/aclk5] [get_bd_pins CIPS_0/m_axi_fpd_aclk] [get_bd_pins axi_intc_parent/s_axi_aclk] [get_bd_pins cips_noc/aclk0]  [get_bd_pins icn_ctrl_1/aclk] [get_bd_pins icn_ctrl_1/aclk1] [get_bd_pins icn_ctrl_2/aclk] [get_bd_pins psr_104mhz/slowest_sync_clk] [get_bd_pins dummy_slave_0/aclk] 
+connect_bd_net -net clk_wizard_0_clk_out2 [get_bd_pins clk_wizard_0/clk_out2] [get_bd_pins psr_156mhz/slowest_sync_clk]
+connect_bd_net -net clk_wizard_0_clk_out3 [get_bd_pins clk_wizard_0/clk_out3] [get_bd_pins psr_312mhz/slowest_sync_clk]
+connect_bd_net -net clk_wizard_0_clk_out4 [get_bd_pins clk_wizard_0/clk_out4] [get_bd_pins psr_78mhz/slowest_sync_clk]
+connect_bd_net -net clk_wizard_0_clk_out5 [get_bd_pins clk_wizard_0/clk_out5] [get_bd_pins psr_208mhz/slowest_sync_clk]
+connect_bd_net -net clk_wizard_0_clk_out6 [get_bd_pins clk_wizard_0/clk_out6] [get_bd_pins psr_416mhz/slowest_sync_clk]
+connect_bd_net -net clk_wizard_0_clk_out7 [get_bd_pins clk_wizard_0/clk_out7] [get_bd_pins psr_625mhz/slowest_sync_clk]
+connect_bd_net -net clk_wizard_0_locked [get_bd_pins clk_wizard_0/locked] [get_bd_pins psr_104mhz/dcm_locked] [get_bd_pins psr_156mhz/dcm_locked] [get_bd_pins psr_208mhz/dcm_locked] [get_bd_pins psr_312mhz/dcm_locked] [get_bd_pins psr_416mhz/dcm_locked] [get_bd_pins psr_600mhz/dcm_locked] [get_bd_pins psr_78mhz/dcm_locked]
+connect_bd_net -net psr_104mhz_peripheral_aresetn [get_bd_pins axi_intc_parent/s_axi_aresetn] [get_bd_pins icn_ctrl_1/aresetn] [get_bd_pins icn_ctrl_2/aresetn] [get_bd_pins psr_104mhz/peripheral_aresetn] [get_bd_pins dummy_slave_0/aresetn] 
 
 
 # Create address segments
@@ -703,3 +703,5 @@ current_bd_instance $oldCurInst
 create_root_design ""
 regenerate_bd_layout
 save_bd_design
+
+

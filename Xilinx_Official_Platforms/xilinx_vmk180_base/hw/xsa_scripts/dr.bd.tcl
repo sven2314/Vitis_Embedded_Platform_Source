@@ -1,6 +1,6 @@
 #******************************************************************************
 # Copyright (C) 2020-2022 Xilinx, Inc. All rights reserved.
-# Copyright (C) 2022-2023 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright (C) 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
 # SPDX-License-Identifier: MIT
 #******************************************************************************
 ##################################################################
@@ -98,7 +98,7 @@ proc create_root_design { parentCell } {
     ] $cips_noc
 
   # Create instance: noc_ddr, and set properties
-  set noc_ddr4 [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 noc_ddr4 ]
+  set noc_ddr4 [create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.1 noc_ddr4 ]
   set_property -dict [ list \
     CONFIG.CONTROLLERTYPE {DDR4_SDRAM} \
     CONFIG.CH0_DDR4_0_BOARD_INTERFACE {ddr4_dimm1} \
@@ -140,7 +140,7 @@ proc create_root_design { parentCell } {
     CONFIG.LOGO_FILE {data/noc_mc.png}
   ] $noc_ddr4
 
-  set noc_lpddr4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.0 noc_lpddr4 ]
+  set noc_lpddr4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_noc:1.1 noc_lpddr4 ]
   set_property -dict [ list \
     CONFIG.CH0_LPDDR4_0_BOARD_INTERFACE {ch0_lpddr4_c0} \
     CONFIG.CH0_LPDDR4_1_BOARD_INTERFACE {ch0_lpddr4_c1} \

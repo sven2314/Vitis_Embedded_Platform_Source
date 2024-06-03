@@ -1,6 +1,6 @@
 # Vitis Base DFX Platform for the vck190 Board
 
-***Version: 2023.2***
+***Version: 2024.1***
 
 This platform comes with common hardware features on the VCK190 board like AI Engine, GEM, DDR and LPDDR. The platform software includes OpenCV in PetaLinux. It is useful as a base platform for exercising Vitis capabilities and topologies on the VCK190 board.
 
@@ -12,9 +12,9 @@ This platform supports Dynamic Function eXchange feature. Users can switch xclbi
 
 | Type              | Value                           |
 | ----------------- | ---------------------------     |
-| Release Version   | xilinx_vck190_base_dfx_202320_1 |
-| Vitis version     | 2023.2                          |
-| XRT Tag version   | [202320.2.16.0_PetaLinux](https://github.com/Xilinx/XRT/releases/tag/202320.2.16.0_PetaLinux)              |
+| Release Version   | xilinx_vck190_base_dfx_202410_1 |
+| Vitis version     | 2024.1                          |
+| XRT Tag version   | [202410.2.17.0_PetaLinux](https://github.com/Xilinx/XRT/releases/tag/202410.2.17.0_Petalinux)              |
 | Target board      | VCK190                          |
 
 ### Interfaces

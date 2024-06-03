@@ -1,8 +1,9 @@
 #******************************************************************************
 # Copyright (C) 2020-2022 Xilinx, Inc. All rights reserved.
-# Copyright (C) 2022-2023 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright (C) 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
 # SPDX-License-Identifier: MIT
 #******************************************************************************
+
 file mkdir build 
 cd build
 source ../xsa_scripts/project.tcl
@@ -18,6 +19,7 @@ add_files -norecurse ./my_project/my_project.srcs/sources_1/bd/vitis_design/hdl/
 
 #Generating Target
 generate_target all [get_files ./my_project/my_project.srcs/sources_1/bd/vitis_design/vitis_design.bd]
+
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1
 set_property top vitis_design_wrapper [current_fileset] 
@@ -32,7 +34,7 @@ update_compile_order -fileset sim_1
 
 # Set the auto-generated <rtl_top>_sim_wrapper as the sim top
 set_property top vitis_design_wrapper_sim_wrapper [get_filesets sim_1]
-import_files -fileset sim_1 -norecurse ./my_project/my_project.srcs/sources_1/common/hdl/vitis_design_wrapper_sim_wrapper.v
+import_files -fileset sim_1 -norecurse ./my_project/my_project.srcs/sources_1/common/hdl/vitis_design_wrapper_sim_wrapper.v 
 update_compile_order -fileset sim_1
 
 #Generate the final simulation script which will compile
@@ -44,6 +46,7 @@ launch_simulation -step elaborate
 #Generating Emulation XSA
 file mkdir hw_emu
 write_hw_platform -hw_emu -file hw_emu/hw_emu.xsa
+
 set pre_synth ""
 if { $argc > 1} {
   set pre_synth [lindex $argv 2]
@@ -71,7 +74,7 @@ if {$pre_synth} {
 }
 
 #generate README.hw
-set board vck190
+set board vek280_es1
 
 set fd [open README.hw w] 
 

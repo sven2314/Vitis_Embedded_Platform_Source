@@ -1,6 +1,6 @@
 #******************************************************************************
 # Copyright (C) 2020-2022 Xilinx, Inc. All rights reserved.
-# Copyright (C) 2022-2023 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright (C) 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
 # SPDX-License-Identifier: MIT
 #******************************************************************************
 
@@ -16,9 +16,6 @@ help::
 	@echo ''
 	@echo '  make all'
 	@echo '      Command used to generate platform with pre-built software components.'
-	@echo ''
-	@echo '  make all PREBUILT_LINUX_PATH=<path/to/common_sw/dir'
-	@echo '			 Command used to generate platform with pre-built software components. By default, makefile looks for pre-built images in current directory or /opt/xilinx/platform/. Path to pre-built common images present in another dir can be passed to makefile manually using this command'
 	@echo ''
 	@echo '  *************************************************************************************************************'
 	@echo '  *                                                                                                           *'

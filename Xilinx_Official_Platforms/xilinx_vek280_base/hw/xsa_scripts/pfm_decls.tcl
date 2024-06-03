@@ -1,6 +1,6 @@
 #******************************************************************************
 # Copyright (C) 2020-2022 Xilinx, Inc. All rights reserved.
-# Copyright (C) 2022-2023 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright (C) 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
 # SPDX-License-Identifier: MIT
 #******************************************************************************
 
@@ -14,7 +14,7 @@ set_property PFM.AXI_PORT {S00_AXI {memport "S_AXI_NOC" sptag "LPDDR"} S01_AXI {
 
 set_property PFM.AXI_PORT {S00_AXI {memport "S_AXI_NOC" sptag "S_AXI_AIE" auto "false" memory "ai_engine_0 AIE_ARRAY_0"} S01_AXI {memport "S_AXI_NOC" sptag "S_AXI_AIE" auto "false" memory "ai_engine_0 AIE_ARRAY_0"} S02_AXI {memport "S_AXI_NOC" sptag "S_AXI_AIE" auto "false" memory "ai_engine_0 AIE_ARRAY_0"} S03_AXI {memport "S_AXI_NOC" sptag "S_AXI_AIE" auto "false" memory "ai_engine_0 AIE_ARRAY_0"} S04_AXI {memport "S_AXI_NOC" sptag "S_AXI_AIE" auto "false" memory "ai_engine_0 AIE_ARRAY_0"} S05_AXI {memport "S_AXI_NOC" sptag "S_AXI_AIE" auto "false" memory "ai_engine_0 AIE_ARRAY_0"}} [get_bd_cells /ConfigNoc]
 
-set_property PFM.CLOCK {clk_out1 {id "1" is_default "false" proc_sys_reset "psr_100mhz" status "fixed"} clk_out2 {id "0" is_default "false" proc_sys_reset "psr_150mhz" status "fixed"} clk_out3 {id "2" is_default "true" proc_sys_reset "psr_300mhz" status "fixed"} clk_out4 {id "3" is_default "false" proc_sys_reset "psr_75mhz" status "fixed"} clk_out5 {id "4" is_default "false" proc_sys_reset "psr_200mhz" status "fixed"} clk_out6 {id "5" is_default "false" proc_sys_reset "psr_400mhz" status "fixed"} clk_out7 {id "6" is_default "false" proc_sys_reset "psr_600mhz" status "fixed"}} [get_bd_cells /clk_wizard_0]
+set_property PFM.CLOCK {clk_out1 {id "1" is_default "false" proc_sys_reset "psr_104mhz" status "fixed"} clk_out2 {id "0" is_default "false" proc_sys_reset "psr_156mhz" status "fixed"} clk_out3 {id "2" is_default "true" proc_sys_reset "psr_312mhz" status "fixed"} clk_out4 {id "3" is_default "false" proc_sys_reset "psr_78mhz" status "fixed"} clk_out5 {id "4" is_default "false" proc_sys_reset "psr_208mhz" status "fixed"} clk_out6 {id "5" is_default "false" proc_sys_reset "psr_416mhz" status "fixed"} clk_out7 {id "6" is_default "false" proc_sys_reset "psr_625mhz" status "fixed"}} [get_bd_cells /clk_wizard_0]
 
 set_property PFM.AXI_PORT {M02_AXI {memport "M_AXI_GP" sptag "" memory ""} M03_AXI {memport "M_AXI_GP" sptag "" memory ""} M04_AXI {memport "M_AXI_GP" sptag "" memory ""}} [get_bd_cells /icn_ctrl_1]
 

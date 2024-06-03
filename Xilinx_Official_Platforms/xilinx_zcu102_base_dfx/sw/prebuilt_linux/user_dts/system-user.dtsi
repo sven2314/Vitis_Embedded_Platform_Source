@@ -1,6 +1,6 @@
 /******************************************************************************
 * Copyright (C) 2020-2022 Xilinx, Inc. All rights reserved.
-* Copyright (C) 2022-2023 Advanced Micro Devices, Inc. All rights reserved.
+* Copyright (C) 2022-2024 Advanced Micro Devices, Inc. All rights reserved.
 * SPDX-License-Identifier: MIT
 ******************************************************************************/
 
@@ -57,6 +57,18 @@
         };
 };
 
+/*adding misc_clk to root node as a workaround for CR-1194757  */
+ 
+/{
+        /delete-node/ misc_clk_0;
+        misc_clk_0: misc_clk_0 {
+                #clock-cells = <0>;
+                clock-frequency = <75000000>;
+                compatible = "fixed-clock";
+        };
+};
+
+
 &amba_pl {
 	/delete-node/ interrupt-controller@80020000;
 };
@@ -88,4 +100,3 @@
 			     <28 4>, <29 4>, <30 4>, <31 4>;
 	};
 };
-
